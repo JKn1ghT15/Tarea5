@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA México API</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eaf3ff;
+            color: #17365d;
+        }
+
+        header {
+            background-color: #0756a5;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-bottom: 0;
+            color: #d6eaff;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 65, 130, 0.10);
+        }
+
+        h2 {
+            color: #0756a5;
+            margin-top: 0;
+        }
+
+        #requestList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #requestList h3 {
+            width: 100%;
+            color: #3979bd;
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: #1675cf;
+            color: white;
+            border: none;
+            padding: 11px 16px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #064b91;
+        }
+
+        button:disabled {
+            background-color: #aabed3;
+            cursor: not-allowed;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 10px 0 15px;
+            border: 1px solid #a8c8e8;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: 2px solid #65a9ed;
+            border-color: #1675cf;
+        }
+
+        #runRequest {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #responseStatus {
+            background-color: #e4f1ff;
+            padding: 10px;
+            border-radius: 7px;
+            color: #0756a5;
+        }
+
+        pre {
+            background-color: #102b49;
+            color: #d9edff;
+            padding: 18px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            min-height: 100px;
+        }
+
+        footer {
+            background-color: #0756a5;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 12px;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>FIFA MÉXICO API</h1>
+        <p>Plataforma de consulta de información del torneo</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Consultas disponibles</h2>
+            <p>Selecciona una consulta para obtener información de la API.</p>
+
+            <div id="requestList">
+                Cargando consultas...
+            </div>
+        </section>
+
+        <section>
+            <h2 id="requestTitle">Selecciona una consulta</h2>
+
+            <p id="requestDescription">
+                Aquí aparecerá la descripción de la consulta seleccionada.
+            </p>
+
+            <label for="endpointUrl"><strong>URL del endpoint:</strong></label>
+
+            <input
+                type="text"
+                id="endpointUrl"
+                placeholder="Escribe la URL de la API"
+            >
+
+            <button id="runRequest" disabled>
+                Ejecutar consulta
+            </button>
+        </section>
+
+        <section>
+            <h2>Respuesta de la API</h2>
+
+            <p id="responseStatus">Sin ejecutar</p>
+
+            <pre id="responseOutput">Aquí aparecerán los datos de la consulta.</pre>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>FIFA México API | Proyecto de consulta de datos</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
+
